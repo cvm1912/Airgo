@@ -1,8 +1,7 @@
+const {infoController} = require('../../controller');
 const express = require('express');
 const router = express.Router();
 
-router.get('/info', (req,res)=>{
-    return res.json({message:"Welcome to Airgo API's"})
-});
+router.get('/info', infoController.info);
 
 module.exports = router;
