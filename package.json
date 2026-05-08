@@ -15,6 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-      "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "winston": "^3.19.0"
   }
 }
