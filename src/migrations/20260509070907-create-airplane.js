@@ -10,49 +10,65 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       airplaneName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       modelNumber: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       manufacturer: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false,
       },
       registrationNumber: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique:true
       },
       capacity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       economySeats: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       businessSeats: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
+        allowNull:false
       },
       firstClassSeats: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       fuelCapacity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       maxSpeed: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       rangeKm: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       airlineId: {
-        type: Sequelize.UUID
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       manufacturedYear: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DATE,
+        allowNull:false
       },
       lastMaintenanceDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull:true
       },
       createdAt: {
         allowNull: false,

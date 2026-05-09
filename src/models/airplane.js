@@ -14,21 +14,67 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Airplane.init({
-    airplaneName: DataTypes.STRING,
-    modelNumber: DataTypes.STRING,
-    manufacturer: DataTypes.STRING,
-    registrationNumber: DataTypes.STRING,
-    capacity: DataTypes.INTEGER,
-    economySeats: DataTypes.INTEGER,
-    businessSeats: DataTypes.INTEGER,
-    firstClassSeats: DataTypes.INTEGER,
-    fuelCapacity: DataTypes.INTEGER,
-    maxSpeed: DataTypes.INTEGER,
-    rangeKm: DataTypes.INTEGER,
-    status: DataTypes.STRING,
-    airlineId: DataTypes.UUID,
-    manufacturedYear: DataTypes.INTEGER,
-    lastMaintenanceDate: DataTypes.DATE
+    airplaneName: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    modelNumber: {
+      type: DataTypes.STRING,
+      allowNull:false
+    },
+    manufacturer:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    registrationNumber: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      unique:true
+    },
+    capacity: {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+    },
+    economySeats: {
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    businessSeats: {
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    firstClassSeats: {
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    fuelCapacity: {
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    maxSpeed: {
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    rangeKm:{
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    status:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    airlineId: {
+      type:DataTypes.INTEGER,
+      allowNull:false,
+    },
+    manufacturedYear:{
+      type:DataTypes.DATE,
+      allowNull:false
+    },
+    lastMaintenanceDate: {
+      type:DataTypes.DATE,
+      allowNull:true
+    }
   }, {
     sequelize,
     modelName: 'Airplane',
