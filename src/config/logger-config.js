@@ -8,7 +8,7 @@ const customFormat = printf(({ level, message, label, timestamp }) => {
 
 const logger = createLogger({
    format: combine(
-    label({label:'My App'}),
+    label({label:'AigGo'}),
     timestamp({format:'YYYY:MM:DD HH:mm:ss'}),
     customFormat
    ),
