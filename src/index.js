@@ -4,6 +4,7 @@ const { serverConfig, loggerConfig  }= require('./config');
 const apiRoutes = require('./routes');
 
 const app = express();
+app.use(express.json());
 app.use('/api', apiRoutes)
 
 
