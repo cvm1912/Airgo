@@ -1,5 +1,8 @@
 const { airplaneService } = require('../services');
 const {StatusCodes} = require('http-status-codes')
+const {
+    SuccessResponse,ErrorResponse
+} = require('../utils/common');
 /**
  * POST : /airplanes
  * req-body : {
@@ -40,21 +43,15 @@ async function createAirplane(req,res){
             lastMaintenanceDate:req.body.lastMaintenanceDate
         })
 
-        return res.status(StatusCodes.OK).json({
-            success:true,
-            message:'Successfully created a new airplane',
-            data:airplane,
-            err:{}
-        })
+        SuccessResponse.message='Successfully created a new airplane'
+        SuccessResponse.data=airplane
+        return res.status(StatusCodes.OK).json({SuccessResponse})
 
     }catch(err)
     {
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success:false,
-            message:'something went wrong while creating airplane',
-            data:{},
-            err: { message: err.message }
-        });
+        ErrorResponse.message='something went wrong while creating airplane'
+        ErrorResponse.error={explanation:'Error while creating airplane'}
+        return res.status(StatusCodes.BAD_REQUEST).json({ErrorResponse});
     }
 }
 

@@ -1,5 +1,5 @@
 const { loggerConfig } = require('../config');
-
+const {AppError}  = require('../utils/errors')
 class CrudRepository {
     constructor(model) {
         this.model = model;
