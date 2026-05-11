@@ -49,12 +49,28 @@ async function createAirplane(req,res){
 
     }catch(err)
     {
-        ErrorResponse.message='something went wrong while creating airplane'
-        ErrorResponse.error={explanation:'Error while creating airplane'}
-        return res.status(StatusCodes.BAD_REQUEST).json({ErrorResponse});
+        ErrorResponse.message = err.message || 'Something went wrong while creating airplane';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
     }
 }
 
+async function getAllAirplanes(req,res){
+    try{
+        const airplanes = await airplaneService.getAirplanes();
+        SuccessResponse.data=airplanes;
+        SuccessResponse.message="Successfully fetch the airplanes"
+        return res.status(StatusCodes.OK).json({SuccessResponse});
+
+    }catch(err)
+    {
+        ErrorResponse.message = err.message || 'Something went wrong while fetching airplane';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
+    }
+
+}
+
 module.exports={
-    createAirplane
+    createAirplane, getAllAirplanes
 }
