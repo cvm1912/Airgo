@@ -3,6 +3,7 @@ const {StatusCodes} = require('http-status-codes')
 const {
     SuccessResponse,ErrorResponse
 } = require('../utils/common');
+const { AppError } = require('../utils/errors');
 /**
  * POST : /airplanes
  * req-body : {
@@ -55,6 +56,11 @@ async function createAirplane(req,res){
     }
 }
 
+
+/**
+ * GET : /airplanes
+ * req-body : {}
+ */
 async function getAllAirplanes(req,res){
     try{
         const airplanes = await airplaneService.getAirplanes();
@@ -70,7 +76,56 @@ async function getAllAirplanes(req,res){
     }
 
 }
+/**
+ * GET : /airplanes/:id
+ * req-body : {}
+ */
+
+async function getAirplane(req,res){
+    try{
+        const airplane = await airplaneService.getAirplane(req.params.id)
+        SuccessResponse.data=airplane;
+        SuccessResponse.message="Fetch airplane data";
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+        
+    }catch(err){
+       
+        ErrorResponse = err.message || 'Something went wrong while fetch airplane.';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
+    }
+}
+
+async function updateAirplane(req,res){
+    try{
+        const response = await airplaneService.updateAirplane(req.params.id,req.body)
+        SuccessResponse.data=response;
+        SuccessResponse.message="Successfully updated the airplane"
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+
+    }catch(err){
+        ErrorResponse = err.message || 'Something went wrong while deleting airplane.';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
+    }
+}
+
+async function destroyAirplane(req, res){
+    try{
+        const response = await airplaneService.destroyAirplane(req.params.id)
+        SuccessResponse.data=response;
+        SuccessResponse.message="Successfully deleted the airplane"
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+
+    }catch(err){
+
+        ErrorResponse = err.message || 'Something went wrong while deleting airplane.';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
+    }
+}
+
 
 module.exports={
-    createAirplane, getAllAirplanes
+    createAirplane, getAllAirplanes, getAirplane, destroyAirplane, updateAirplane
 }
