@@ -1,8 +1,9 @@
 const { AirportController } = require('../../controller');
+const { AirportMiddleware } = require('../../middlewares');
 const express = require('express');
 const router = express.Router();
 
-router.post('/', AirportController.createAirport);
+router.post('/', AirportMiddleware.validateCreateRequest, AirportController.createAirport);
 router.get('/', AirportController.getAllAirports);
 router.get('/:id', AirportController.getAirport);
 router.patch('/:id', AirportController.updateAirport);
