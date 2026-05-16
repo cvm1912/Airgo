@@ -17,7 +17,7 @@ async function createFlight(data) {
 
 async function getFlights() {
     try {
-        return await flightRepository.getAll();
+        return await flightRepository.getAllFlights();
     } catch (err) {
         throw new AppError('Failed to fetch flights', StatusCodes.INTERNAL_SERVER_ERROR);
     }
