@@ -5,6 +5,14 @@ const SEAT_TYPE = {
     PREMIUM_ECONOMY:'PREMIUM_ECONOMY'
 }
 
-module.exports={
-    SEAT_TYPE
+const BOOKING_STATUS = {
+    BOOKED: 'BOOKED',
+    PENDING: 'PENDING',
+    CANCELLED: 'CANCELLED',
+    INITIATED: 'INITIATED'
+}
+
+module.exports = {
+    SEAT_TYPE,
+    BOOKING_STATUS
 }

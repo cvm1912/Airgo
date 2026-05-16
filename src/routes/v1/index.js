@@ -7,6 +7,8 @@ const seatRoutes = require('./seat-router');
 const express = require('express');
 const router = express.Router();
 
+const cityRoutes = require('./city-router');
+
 router.get('/info', infoController.info);
 router.use('/airplanes', airplaneRoutes);
 router.use('/airports', airportRoutes);
