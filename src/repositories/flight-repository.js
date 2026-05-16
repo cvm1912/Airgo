@@ -1,4 +1,4 @@
-const { Flight, Airplane, Airport, Sequelize } = require('../models');
+const { Flight, Airplane, Airport } = require('../models');
 const crudRepository = require('./crud-repository');
 class FlightRepository extends crudRepository{
     constructor(){
@@ -8,21 +8,14 @@ class FlightRepository extends crudRepository{
     async getAllFlights(){
         try{
             const response = await Flight.findAll({
-                include: [{
-                    model: Airplane,
-                    attributes: ['airplaneName', 'modelNumber'],
-                    where: { modelNumber: 'Boeing 747' }
-                },{
-                    model: Airport,
-                    required: true,
-                    on: {
-                        col1: Sequelize.where(
-                            Sequelize.col('Flight.departureAirportId'),
-                            '=',
-                            Sequelize.col('Airport.id')
-                        )
-                    }
-                }]
+                include: [
+                    { model: Airplane, 
+                        as: 'airplane',                      
+                    
+                    },
+                    { model: Airport, as: 'departureAirport' },
+                    { model: Airport, as: 'arrivalAirport' }
+                ]
             });
             return response;
         }catch(err){
@@ -30,5 +23,6 @@ class FlightRepository extends crudRepository{
         }
     }
 }
+
 
 module.exports = FlightRepository;
