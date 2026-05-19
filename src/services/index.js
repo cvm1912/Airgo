@@ -3,5 +3,6 @@ module.exports = {
     cityService: require('./city-service'),
     airportService: require('./airport-service'),
     flightService: require('./flight-service'),
-    seatService: require('./seat-service')
+    seatService: require('./seat-service'),
+    bookingService: require('./booking-service')
 }

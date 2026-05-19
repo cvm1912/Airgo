@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     rowNumber: { type: DataTypes.STRING, allowNull: false },
     columnNumber: { type: DataTypes.STRING, allowNull: false },
     airplaneId: { type: DataTypes.INTEGER, allowNull: false },
+    noOfSeats: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 1 },
     class: {
       type: DataTypes.ENUM(Object.values(SEAT_TYPE)),
       defaultValue: SEAT_TYPE.ECONOMY,

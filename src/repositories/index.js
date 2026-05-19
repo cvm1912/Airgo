@@ -4,5 +4,6 @@ module.exports = {
     CrudRepository: require('./crud-repository'),
     AirportRepository: require('./airport-repository'),
     FlightRepository: require('./flight-repository'),
-    SeatRepository: require('./seat-repository')
+    SeatRepository: require('./seat-repository'),
+    BookingRepository: require('./booking-repository')
 }

@@ -17,6 +17,7 @@ async function createSeat(req, res) {
             rowNumber: req.body.rowNumber,
             columnNumber: req.body.columnNumber,
             airplaneId: req.body.airplaneId,
+            noOfSeats: req.body.noOfSeats,
             class: req.body.class
         });
         SuccessResponse.message = 'Successfully created a new seat';
