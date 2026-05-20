@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     rowNumber: { type: DataTypes.STRING, allowNull: false },
     columnNumber: { type: DataTypes.STRING, allowNull: false },
     airplaneId: { type: DataTypes.INTEGER, allowNull: false },
-    noOfSeats: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 1 },
     class: {
       type: DataTypes.ENUM,
       value: [BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS],
