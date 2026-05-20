@@ -1,6 +1,7 @@
 'use strict';
 const { Enums } = require('../utils/common');
-const { SEAT_TYPE } = Enums;
+const { BUSINESS, ECONOMY, FIRST_CLASS, PREMIUM_ECONOMY } = Enums.SEAT_TYPE;
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -27,7 +28,8 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       class: {
-        type: Sequelize.ENUM(Object.values(SEAT_TYPE)),
+        type: Sequelize.ENUM,
+        value: [BUSINESS, ECONOMY, PREMIUM_ECONOMY, FIRST_CLASS],
         defaultValue: SEAT_TYPE.ECONOMY,
         allowNull: false
       },
