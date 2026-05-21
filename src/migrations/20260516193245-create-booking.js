@@ -1,6 +1,8 @@
 'use strict';
 const { Enums } = require('../utils/common');
 const { BOOKING_STATUS } = Enums;
+const {BOOKED, PENDING, CANCELLED, INITIATED} = Enums.BOOKING_STATUS
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -23,9 +25,14 @@ module.exports = {
         allowNull: false
       },
       status: {
-        type: Sequelize.ENUM(Object.values(BOOKING_STATUS)),
+        type: Sequelize.ENUM,
+        values:[BOOKED,CANCELLED,PENDING, INITIATED],
         defaultValue: BOOKING_STATUS.INITIATED,
         allowNull: false
+      },
+      noofSeats:{
+        type:Sequelize.INTEGER,
+        allowNull:false
       },
       totalCost: {
         type: Sequelize.DECIMAL,

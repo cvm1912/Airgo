@@ -18,4 +18,15 @@ function validateCreateRequest(req, res, next) {
     next();
 }
 
-module.exports = { validateCreateRequest };
+
+function validateUpdateSeatsRequest(req, res, next) {
+ 
+    if(!req.body.seats){
+        ErrorResponse.message = 'seats not provided in request body';
+        ErrorResponse.error = { explanation: 'seats is required to update seat availability' };
+        return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+    }
+    next();
+}
+
+module.exports = { validateCreateRequest, validateUpdateSeatsRequest };

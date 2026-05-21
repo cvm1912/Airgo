@@ -1,0 +1,141 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\titlerule\vspace{-4pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{{#1\vspace{-2pt}}}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small#4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \small#2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label=\textbullet]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+%----------- HEADER -----------
+\begin{center}
+  {\Huge \textbf{Shivam Raj}} \\[4pt]
+  \small
+  \faPhone\ \href{tel:+916299505866}{+91-6299505866} $|$
+  \faEnvelope\ \href{mailto:rajshivam1912@gmail.com}{rajshivam1912@gmail.com} $|$
+  \faGithub\ \href{https://github.com/cvm1912}{Shivam Raj} $|$
+  \faLinkedin\ \href{https://www.linkedin.com/in/shivam-raj-979b9822b/}{Shivam Raj}
+\end{center}
+
+%----------- SUMMARY -----------
+\section{Summary}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small\item{
+    Results-driven Backend Developer with 2+ years of hands-on experience building scalable REST APIs and distributed systems using Node.js, Express.js, MySQL, and Core Java. Proven ability to design Microservices and Monolithic architectures, apply System Design principles, and deploy cloud-native applications on AWS.
+  }
+\end{itemize}
+\vspace{-10pt}
+
+%----------- TECHNICAL SKILLS -----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small\item{
+    \textbf{Languages:} Java, JavaScript, C++, OOP\\
+    \textbf{Frontend:} HTML5, CSS3, React.js, Tailwind CSS \\
+    \textbf{Backend:} Node.js, Express.js, Microservices, REST API, Auth\\
+    \textbf{Databases:} MySQL, MongoDB \\
+    \textbf{ORM / Query:} Prisma, Sequelize \\
+    \textbf{DevOps \& Tools:} Docker, CI/CD, Git, GitHub, Postman, Linux, AWS (S3, EC2, ECS, VPC)
+  }
+\end{itemize}
+\vspace{-10pt}
+
+%----------- EXPERIENCE -----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Nexzem Technologies Pvt. Ltd.}{July 2025 -- Present}
+    {Full Stack Developer}{Dehradun, Uttarakhand}
+    \resumeItemListStart
+      \resumeItem{Architected the complete backend for \textbf{DailyLancer}, a two-sided service marketplace, from scratch to production using Node.js, Express.js, and MySQL.}
+      \resumeItem{Containerized services with Docker and optimized relational database schemas with indexing strategies, improving query performance by over 30\%.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Nexzem Technologies Pvt. Ltd.}{Nov 2024 -- July 2025}
+    {Junior Software Developer}{Dehradun, Uttarakhand}
+    \resumeItemListStart
+      \resumeItem{Built RESTful APIs using Node.js and Express.js for an inventory management module, reducing average query execution time by \textbf{35\%} using Prisma and Sequelize ORM.}
+      \resumeItem{Consumed REST APIs on the frontend using Axios and TanStack Query, cutting data-fetching boilerplate and improving perceived UI responsiveness.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Sureminds Solutions Private Limited}{Jan 2024 -- June 2024}
+    {MERN Stack Trainee}{Patna, Bihar}
+    \resumeItemListStart
+      \resumeItem{Designed and implemented RESTful APIs with Node.js and Express.js, consumed by a React.js frontend to deliver dynamic, data-driven web applications.}
+      \resumeItem{Modeled and managed MongoDB collections for multiple features, handling schema design and CRUD operations across collaborative team projects.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%----------- PROJECTS -----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{Airplane Booking Service} $|$ \textit{Node.js, Express.js, Sequelize ORM, MySQL, Microservices}}{2025}
+    \resumeItemListStart
+      \resumeItem{Built a flight booking platform using a microservices backend with Node.js, Express.js, MySQL, and Sequelize ORM, supporting seat reservation and booking workflows.}
+      \resumeItem{Developed an interactive frontend with Next.js and Tailwind CSS, integrating real-time data fetching using TanStack Query for a responsive user experience.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%----------- EDUCATION -----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Bachelor of Technology in Computer Science and Engineering}{2020 -- 2024}
+    {I.K. Gujral Punjab Technical University}{Kapurthala, Punjab}
+\resumeSubHeadingListEnd
+
+\end{document}

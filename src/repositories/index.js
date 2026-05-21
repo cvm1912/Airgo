@@ -6,4 +6,5 @@ module.exports = {
     FlightRepository: require('./flight-repository'),
     SeatRepository: require('./seat-repository'),
     BookingRepository: require('./booking-repository')
+
 }

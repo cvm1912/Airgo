@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: BOOKING_STATUS.INITIATED,
       allowNull: false
     },
+    noofSeats: { type: DataTypes.INTEGER, allowNull: false },
     totalCost: { type: DataTypes.DECIMAL, allowNull: false }
   }, {
     sequelize,

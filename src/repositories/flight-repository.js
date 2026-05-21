@@ -22,7 +22,21 @@ class FlightRepository extends crudRepository{
             throw err;
         }
     }
+    async updateRemainingSeats(flightId, seats, dec = true){
+        try{
+            const flight = await Flight.findByPk(flightId);
+            if(!flight) throw new Error('Flight not found');
+            if(dec){
+                await flight.decrement('availableSeats', { by: seats });
+            } else {
+                await flight.increment('availableSeats', { by: seats });
+            }
+            await flight.reload();
+            return flight;
+        }catch(err){
+            throw err;
+        }
+    }
 }
-
 
 module.exports = FlightRepository;

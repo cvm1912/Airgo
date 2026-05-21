@@ -59,7 +59,7 @@ async function createFlight(req, res) {
 
 async function getAllFlights(req, res) {
     try {
-        const flights = await flightService.getFlights({include:''});
+        const flights = await flightService.getFlights();
         SuccessResponse.message = 'Successfully fetched all flights';
         SuccessResponse.data = flights;
         return res.status(StatusCodes.OK).json({ SuccessResponse });
@@ -109,4 +109,22 @@ async function destroyFlight(req, res) {
     }
 }
 
-module.exports = { createFlight, getAllFlights, getFlight, updateFlight, destroyFlight };
+async function updateSeats(req, res) {
+    try{
+        const response = await flightService.updateSeats({
+            flightId: parseInt(req.params.id),
+            seats: req.body.seats,
+            dec: req.body.dec
+        });
+        SuccessResponse.message = 'Successfully updated seat availability';
+        SuccessResponse.data = response;
+        return res.status(StatusCodes.OK).json({ SuccessResponse });
+    }catch(err){
+        ErrorResponse.message = err.message || 'Something went wrong while updating seat availability';
+        ErrorResponse.error = { explanation: err.explanation || err.message };
+        return res.status(err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({ ErrorResponse });
+
+    }
+}
+
+module.exports = { createFlight, getAllFlights, getFlight, updateFlight, destroyFlight, updateSeats };

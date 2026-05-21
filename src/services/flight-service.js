@@ -55,4 +55,13 @@ async function destroyFlight(id) {
     }
 }
 
-module.exports = { createFlight, getFlights, getFlight, updateFlight, destroyFlight };
+async function updateSeats(data) {
+    try {
+        const response = await flightRepository.updateRemainingSeats(data.flightId, data.seats, data.dec);
+        return response;
+    } catch (err) {
+        throw new AppError(err.message || 'Failed to update seat availability', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+module.exports = { createFlight, getFlights, getFlight, updateFlight, destroyFlight, updateSeats};

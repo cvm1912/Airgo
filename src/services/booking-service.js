@@ -1,12 +1,14 @@
 const { BookingRepository } = require('../repositories');
 const { AppError } = require('../utils/errors');
 const { StatusCodes } = require('http-status-codes');
+const { flightService } = require('./flight-service');
 
 const bookingRepository = new BookingRepository();
 
 async function createBooking(data) {
     try {
         const booking = await bookingRepository.create(data);
+        await flightService.updateSeats({ flightId: data.flightId, seats: data.noofSeats, dec: true });
         return booking;
     } catch (err) {
         if (err.name == 'SequelizeValidationError') {

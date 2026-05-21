@@ -17,6 +17,7 @@ async function createBooking(req, res) {
             flightId: req.body.flightId,
             userId: req.body.userId,
             status: req.body.status,
+            noofSeats: req.body.noofSeats,
             totalCost: req.body.totalCost
         });
         SuccessResponse.message = 'Successfully created a new booking';

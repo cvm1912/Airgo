@@ -8,5 +8,6 @@ router.get('/', FlightController.getAllFlights);
 router.get('/:id', FlightController.getFlight);
 router.patch('/:id', FlightController.updateFlight);
 router.delete('/:id', FlightController.destroyFlight);
+router.patch('/:id/seats', FlightMiddleware.validateUpdateSeatsRequest, FlightController.updateSeats);
 
 module.exports = router;
